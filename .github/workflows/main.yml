@@ -1,0 +1,26 @@
+
+name: CI
+
+on:
+  push:
+    branches:
+      - master  # ou autre branche
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up build environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install g++  # Installer le compilateur C++ si nécessaire
+        sudo apt-get install catch2
+        
+    - name: Build and run tests
+      run: |
+        g++ -o test_main test_main.cpp  # Compilez vos fichiers sources
+        ./test_main  # Exécutez vos tests unitaires
