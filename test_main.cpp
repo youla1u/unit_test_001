@@ -13,7 +13,7 @@ TEST_CASE("TaskManager functionality", "[task_manager]") {
         taskManager.addTask(task1);
         taskManager.addTask(task2);
 
-        REQUIRE(taskManager.getTaskCount() == 1);
+        REQUIRE(taskManager.getTaskCount() == 2);
     }
 
     SECTION("Removing tasks") {
